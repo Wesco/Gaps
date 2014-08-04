@@ -9,22 +9,34 @@ using System.Windows.Forms;
 
 namespace Gaps
 {
-    public partial class InputBox : Form
+    public partial class gapsDialog : Form
     {
-        public InputBox()
+        public gapsDialog()
         {
             InitializeComponent();
         }
 
         private void InputBox_Load(object sender, EventArgs e)
         {
+            this.cbBranch.DataSource = new object[] { "3615", "3605", "3625", "3640" };
             this.AcceptButton = btnOk;
             this.CancelButton = btnCancel;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            bool imported = oApp.thisAddin.ImportGaps(this.dtPicker.Value, radTxt.Checked);
+            string branch;
+
+            try
+            {
+                branch = cbBranch.SelectedItem.ToString();
+            }
+            catch (Exception ex)
+            {
+                branch = "3615";
+            }
+
+            bool imported = oApp.thisAddin.ImportGaps(this.dtPicker.Value, radTxt.Checked, branch);
 
             if (imported)
             {

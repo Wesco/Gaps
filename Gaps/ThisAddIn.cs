@@ -17,14 +17,14 @@ namespace Gaps
 
     public partial class ThisAddIn
     {
-        public bool ImportGaps(DateTime date, bool TextSIMs)
+        public bool ImportGaps(DateTime date, bool TextSIMs, string branch)
         {
-            const string sGaps = "\\\\br3615gaps\\gaps\\3615 Gaps Download\\";
+            string sGaps = "\\\\br3615gaps\\gaps\\" + branch + " Gaps Download\\";
             string sPath;
             string sFile;
 
             sPath = sGaps + date.ToString("yyyy") + "\\";
-            sFile = "3615 " + date.ToString("yyyy-MM-dd") + ".csv";
+            sFile = branch + " " + date.ToString("yyyy-MM-dd") + ".csv";
 
             if (File.Exists(sPath + sFile))
             {
@@ -57,7 +57,7 @@ namespace Gaps
                 ActiveSheet.QueryTables.Add("TEXT;" + sPath + sFile, ActiveSheet.Range["A1"]);
                 qtIndex = ActiveSheet.QueryTables.Count;
 
-                ActiveSheet.QueryTables[qtIndex].Name = "3615 " + date.ToString("yyyy-MM-dd");
+                ActiveSheet.QueryTables[qtIndex].Name = branch + " " + date.ToString("yyyy-MM-dd");
                 ActiveSheet.QueryTables[qtIndex].FieldNames = true;
                 ActiveSheet.QueryTables[qtIndex].RowNumbers = false;
                 ActiveSheet.QueryTables[qtIndex].FillAdjacentFormulas = false;
@@ -83,7 +83,7 @@ namespace Gaps
                 ActiveSheet.QueryTables[qtIndex].Refresh(false);
 
                 // Clean up connections and tables
-                Application.ActiveWorkbook.Connections["3615 " + date.ToString("yyyy-MM-dd")].Delete();
+                Application.ActiveWorkbook.Connections[branch + " " + date.ToString("yyyy-MM-dd")].Delete();
                 ActiveSheet.QueryTables[qtIndex].Delete();
 
                 // Insert SIM numbers

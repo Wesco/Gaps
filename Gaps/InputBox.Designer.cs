@@ -1,6 +1,6 @@
 ﻿namespace Gaps
 {
-    partial class InputBox
+    partial class gapsDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +35,8 @@
             this.radTxt = new System.Windows.Forms.RadioButton();
             this.radNum = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblBranch = new System.Windows.Forms.Label();
+            this.cbBranch = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // dtPicker
@@ -48,7 +50,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(116, 70);
+            this.btnOk.Location = new System.Drawing.Point(116, 98);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 1;
@@ -67,7 +69,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(197, 70);
+            this.btnCancel.Location = new System.Drawing.Point(197, 98);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -101,17 +103,42 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 41);
+            this.label2.Location = new System.Drawing.Point(5, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Insert SIM #\'s as";
             // 
-            // InputBox
+            // lblBranch
+            // 
+            this.lblBranch.AutoSize = true;
+            this.lblBranch.Location = new System.Drawing.Point(5, 65);
+            this.lblBranch.Name = "lblBranch";
+            this.lblBranch.Size = new System.Drawing.Size(81, 13);
+            this.lblBranch.TabIndex = 8;
+            this.lblBranch.Text = "Branch Number";
+            // 
+            // cbBranch
+            // 
+            this.cbBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBranch.FormattingEnabled = true;
+            this.cbBranch.Items.AddRange(new object[] {
+            "3615",
+            "3605",
+            "3625",
+            "3640"});
+            this.cbBranch.Location = new System.Drawing.Point(116, 62);
+            this.cbBranch.Name = "cbBranch";
+            this.cbBranch.Size = new System.Drawing.Size(148, 21);
+            this.cbBranch.TabIndex = 9;
+            // 
+            // gapsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 105);
+            this.ClientSize = new System.Drawing.Size(284, 133);
+            this.Controls.Add(this.cbBranch);
+            this.Controls.Add(this.lblBranch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radNum);
             this.Controls.Add(this.radTxt);
@@ -120,7 +147,7 @@
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.dtPicker);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "InputBox";
+            this.Name = "gapsDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gaps Date Dialog";
             this.TopMost = true;
@@ -139,5 +166,7 @@
         private System.Windows.Forms.RadioButton radTxt;
         private System.Windows.Forms.RadioButton radNum;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblBranch;
+        private System.Windows.Forms.ComboBox cbBranch;
     }
 }

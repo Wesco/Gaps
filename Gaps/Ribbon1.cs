@@ -15,8 +15,8 @@ namespace Gaps
 
         private void btnInsertGaps_Click(object sender, RibbonControlEventArgs e)
         {
-            InputBox ipb = new InputBox();
-            ipb.ShowDialog();
+            gapsDialog gaps = new gapsDialog();
+            gaps.ShowDialog();
         }
     }
 }
