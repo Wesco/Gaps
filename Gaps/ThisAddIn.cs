@@ -41,7 +41,8 @@ namespace Gaps
                 ActiveSheet.Cells.Delete();
                 Application.DisplayAlerts = true;
 
-                using (StreamReader sr = new StreamReader(sPath + sFile))
+
+                using (StreamReader sr = new StreamReader(new FileStream(sPath + sFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite), Encoding.Default))
                 {
                     string currentLine = sr.ReadLine();
 
